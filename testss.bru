@@ -1,0 +1,63 @@
+meta {
+  name: testss
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://pdfkit.org/demo/out/{{foo}}
+  body: formUrlEncoded
+  auth: basic
+}
+
+headers {
+  : 
+}
+
+auth:basic {
+  username: 
+  password: 
+}
+
+body:json {
+  {
+    "name":"vals",
+    "vals":"asdsad"
+  }
+}
+
+body:form-urlencoded {
+  vals: '''
+    {
+        "ngisjson": [
+                {
+                "iSeitKey":"{{iseitkey1}}",
+                "guid":"{{tempdocId1}}",
+                "lastUpdateTimestamp":"2021-10-27-22.48.18.812005",
+                "prcsId":"APIDOC",
+                "docClassId":"ECCDocuments",
+                "docTypeId":"ECCDocuments",
+                "mimeType": "JPEG",
+                "sysId":"NGIS",
+                "server": "CLOUD",
+                "prcsoffLocCd":"08",
+                "pgCnt":3,
+                "clmSysId":"",
+                "docProps": []
+                }
+            ]
+        }
+  '''
+}
+
+vars:pre-request {
+  string: {{foo}}
+}
+
+script:pre-request {
+  console.log(bru.res)
+}
+
+docs {
+  [link](www.google.com)
+}

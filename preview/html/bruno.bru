@@ -1,0 +1,32 @@
+meta {
+  name: bruno
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://www.usebruno.com
+  body: none
+  auth: none
+}
+
+auth:basic {
+  username: 
+  password: 
+}
+
+auth:bearer {
+  token: 
+}
+
+assert {
+  res.status: eq 200
+}
+
+tests {
+  test("should return parsed xml", function() {
+    const headers = res.getHeaders();
+    expect(headers['content-type']).to.eql("text/html; charset=utf-8");
+  });
+  
+}

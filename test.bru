@@ -1,0 +1,43 @@
+meta {
+  name: test
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://postman-echo.com/{{foo}}
+  body: json
+  auth: none
+}
+
+headers {
+  Authentication: application/json
+}
+
+auth:basic {
+  username: 
+  password: 
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+    "name":"vals",
+    "vals":"asdsad"
+  }
+}
+
+body:form-urlencoded {
+  vals[]: 1
+  vals[]: 2
+  vals[]: 3
+}
+
+docs {
+  [githu](https://github.com/usebruno/bruno/issues/1156)
+  
+  <font color=#FFFF00>xxx</font>
+}

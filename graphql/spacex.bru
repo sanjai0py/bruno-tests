@@ -1,0 +1,43 @@
+meta {
+  name: spacex
+  type: graphql
+  seq: 1
+}
+
+post {
+  url: https://spacex-production.up.railway.app/
+  body: graphql
+  auth: none
+}
+
+auth:basic {
+  username: 
+  password: 
+}
+
+auth:bearer {
+  token: 
+}
+
+body:graphql {
+  query GetStocks($skus: [string!]!) {
+    getStocks(skus: $skus) {
+      length
+      products {
+        id
+        sku
+        quantity
+      }
+    } 
+  }
+}
+
+body:graphql:vars {
+  {
+    "skus": ["{{skus}}"]
+  }
+}
+
+assert {
+  res.status: eq 200
+}
